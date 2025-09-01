@@ -123,23 +123,28 @@ port=$(
 # Generate server URL for Codespace
 server_url="https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/?token=$token"
 
-echo "**********************************************************************"
-echo
-echo "You can access JupyterLab via the link below (CTRL or CMD and click)"
-echo
-echo $server_url
-echo
-echo "NB: This should automatically start anyway once JupyterLab is running"
-echo
-echo "**********************************************************************"
+blue='\033[1;34m'
+reset='\033[0m'
+
+jupyterlab_message="${blue}
+**********************************************************************
+
+You can access JupyterLab via the link below (CTRL or CMD and click)
+
+$server_url
+
+**********************************************************************
+${reset}"
+
+echo -e "$jupyterlab_message"
 
 # Wait until JupyterLab is running
-(
-  until curl -fsS --output /dev/null "$server_url" 2>/dev/null; do
-    sleep 1
-  done
-  "$BROWSER" "$server_url"
-) &
+# (
+#   until curl -fsS --output /dev/null "$server_url" 2>/dev/null; do
+#     sleep 1
+#   done
+#   "$BROWSER" "$server_url"
+# ) &
 
 # START JUPYTER LAB IN DOCKER
 
