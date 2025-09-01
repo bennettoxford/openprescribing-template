@@ -1,3 +1,3 @@
 {
-  "postAttachCommand": "bash ./jupyter-lab-mac-os"
+  "postAttachCommand": "bash ./jupyter-lab-start.sh"
 }
