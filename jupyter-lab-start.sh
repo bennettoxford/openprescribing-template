@@ -135,7 +135,7 @@ echo "**********************************************************************"
 
 # Wait until JupyterLab is running
 (
-  until curl -fsS --output /dev/null "$server_url"; do
+  until curl -fsS --output /dev/null "$server_url" 2>/dev/null; do
     sleep 1
   done
   "$BROWSER" "$server_url"
