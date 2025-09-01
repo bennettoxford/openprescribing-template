@@ -48,61 +48,6 @@ fi
 echo "$BQ_CREDENTIALS" > ./bq-service-account.json
 
 
-# # GENERATE SERVER CONFIG
-# #
-# # Generate a random token for authentication
-# token=$(head -c 12 /dev/urandom | base64 | tr '+/' '01')
-
-# # Use port 8888 (already configured for forwarding in devcontainer.json)
-# port=8888
-
-# # Generate server URL for Codespace
-# if [[ -n "${CODESPACE_NAME:-}" ]]; then
-#   server_url="https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/?token=$token"
-
-#   echo "**********************************************************************"
-#   echo
-#   echo "You can access JupyterLab via the link below (CTRL or CMD and click)"
-#   echo
-#   echo $server_url
-#   echo
-#   echo "**********************************************************************"
-  
-#   # Auto-open in browser after a short delay
-#   (sleep 5 && "$BROWSER" "$server_url") &
-# else
-#   server_url="server_url:$port/?token=$token"
-#   echo "Starting Jupyter Lab at: $server_url"
-# fi
-
-
-# # START JUPYTER LAB
-# #
-# # Run Jupyter Lab directly in the current environment
-# exec jupyter lab \
-#   --ip=0.0.0.0 \
-#   --port="$port" \
-#   --IdentityProvider.token="$token" \
-#   --ServerApp.custom_display_url="$server_url" \
-#   --no-browser \
-#   --allow-root
-
-
-
-# GENERATE DOCKER IMAGE NAME
-#
-# We want a Docker image name which is:
-# (a) stable so repeated runs of this script use the same image;
-# (b) unique to this specific project;
-# (c) reasonably easy to identify by eye in a list of image names.
-#
-# So we use the naming scheme:
-#
-#     jupyter-<directory-name>-<short-hash-of-the-full-directory-path>
-#
-# e.g. "jupyter-docker-notebook-8cfe31c1"
-#
-
 dirname="$(basename "$PWD")"
 path_hash=$(echo "$PWD" | shasum | head -c 8)
 image_name="jupyter-$dirname-$path_hash"
@@ -184,11 +129,17 @@ echo "You can access JupyterLab via the link below (CTRL or CMD and click)"
 echo
 echo $server_url
 echo
+echo "NB: This should automatically start anyway once JupyterLab is running"
+echo
 echo "**********************************************************************"
 
-# Auto-open in browser after a short delay
-(sleep 5 && "$BROWSER" "$server_url") &
-
+# Wait until JupyterLab is running
+(
+  until curl -fsS --output /dev/null "$server_url"; do
+    sleep 1
+  done
+  "$BROWSER" "$server_url"
+) &
 
 # START JUPYTER LAB IN DOCKER
 
