@@ -5,7 +5,9 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker"
       ]
     }
   }

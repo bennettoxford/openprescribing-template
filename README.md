@@ -1,68 +1,36 @@
-# The Bennett Institute's skeleton notebook environment
+# OpenPrescribing JupyterLab Notebook
 
+Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find this notebook both informative and useful. This Notebook is designed as a template for those wishing to learn and/or practice the access and data analyse of data from the OpenPrescribing data source. For those wishing to learn about how to use this Notebook from scratch (or even a reminder), then please start [here](https://bennett.wiki/) `url needs updating`. Currently, this notebook is only available for Bennett Institute staff, as you need credentials to access the OpenPrescribing data.
 
-## Getting started with this skeleton project
+## Getting started
 
-This is a skeleton project for creating a reproducible, cross-platform
-analysis notebook, using Docker.
+1. Open Codespace by clicking on `<> Code ▼` button above
+2. Clicking on the `Codespace` tab
+3. Click on 'Create Codespace on master`
+4. Wait 2-3 minutes for Codespace to build (this can look like a lot is not happening, but be patient)
 
-Developers and analysts using this skeleton for new development should
-refer to [`DEVELOPERS.md`](DEVELOPERS.md) for instructions on getting
-started.  Update this `README.md` so it is a suitable introduction to
-your project.
+## Open Jupyter Labs
 
+Once Codespace has finished building, will see the terminal start showing a lot of text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.
 
-## Running Jupyter Lab
+```markdown
+**********************************************************************
 
-You will need to have installed Git and Docker, please see the
-[`INSTALLATION_GUIDE.md`](INSTALLATION_GUIDE.md) for further details.
+You can access JupyterLab via the link below (CTRL or CMD and click)
 
-Windows and Linux users should double-click the `jupyter-lab` file.
-Users on macOS should double-click `jupyter-lab-mac-os` instead.
+https://opulent-trout-7xj795qv5qqhr9x7-59459.app.github.dev/?token=E8HYgdstcE8DqCLW
 
-Note: if double-clicking the `jupyter-lab` file opens the file in VS Code, you
-should instead right-click on the file and open it with Git for Windows.
-
-This will build a Docker image with all software requirements installed,
-start a new Jupyter Lab server, and then provide a link to access this
-server.
-
-The first time you run this command it may take some time to download
-and install the necessary software. Subsequent runs should be much
-faster.
-
-Note: if running the command fails with:
+**********************************************************************
 
 ```
-docker: Error response from daemon: user declined directory sharing C:\path\to\directory
-```
 
-you should open the Docker dashboard, and then under Settings -> Resources ->
-FileSharing, add the appropriate path.
+## Batteries included
 
-Once the server starts you should see the URL needed to access it,
-followed by some lines of Jupyter log output, for example:
-<pre>
- -> Connect to notebook with URL:
+To help you within Codespace, we have added the below features (but not included in live JupyterLab sessions):
 
-        <strong>http://localhost:59169/?token=C1atgmXc9IJGXCZy</strong>
-
-    Tip: to open in browser, triple-click the URL, right-click, choose "Open"
-
-[I 2024-08-08 13:13:18.953 ServerApp] jupyter_lsp | extension was successfully linked.
-[I 2024-08-08 13:13:18.959 ServerApp] jupyter_server_terminals | extension was successfully linked.
-[I 2024-08-08 13:13:18.969 ServerApp] jupyterlab | extension was successfully linked.
-...
-[I 2024-08-08 13:13:19.471 ServerApp] Serving notebooks from local directory: /workspace
-[I 2024-08-08 13:13:19.472 ServerApp] Jupyter Server 2.14.0 is running at:
-[I 2024-08-08 13:13:19.472 ServerApp] http://localhost:59169/?token=C1atgmXc9IJGXCZy
-[I 2024-08-08 13:13:19.472 ServerApp]     http://127.0.0.1:59169/lab?token=...
-[I 2024-08-08 13:13:19.472 ServerApp] Use Control-C to stop this server and shut down all kernels.
-</pre>
-
+1. Spell checker
+2. Markdown linting (basically a grammar checker for markdown)
 
 ## How to cite
 
-XXX Please change to either a paper (if published) or the repo. You may find it helpful to use Zenodo DOI (see [`DEVELOPERS.md`](DEVELOPERS.md#how-to-invite-people-to-cite) for further information)
-
-
+XXX Please change to either a paper (if published) or the repo. You may find it helpful to use Zenodo DOI (see [`DEVELOPERS.md`](dev/Developers.md#how-to-invite-people-to-cite) for further information).
