@@ -11,6 +11,8 @@ set -euo pipefail
 # Setting some variables to enable colours terminal print outs
 blue='\033[1;34m'
 red='\033[0;31m'
+underline='\033[4m'
+underline_off='\033[24m'
 reset='\033[0m'
 
 # CHANGE INTO SCRIPT DIRECTORY
@@ -98,7 +100,7 @@ jupyterlab_message="${blue}
 
 You can access JupyterLab via the link below (CTRL or CMD and click)
 
-$server_url
+${underline}$server_url${underline_off}
 
 We will try and open the above url for you, but your pop-up blocker may stop this.
 
