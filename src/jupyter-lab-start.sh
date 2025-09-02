@@ -8,6 +8,10 @@
 
 set -euo pipefail
 
+blue='\033[1;34m'
+red='\033[0;31m'
+reset='\033[0m'
+
 
 # ERROR HANDLER
 #
@@ -31,20 +35,36 @@ cd "$( dirname "${BASH_SOURCE[0]}")/.."
 # ...existing code...
 # export EBMDATALAB_BQ_CREDENTIALS_PATH="$PWD/bq-service-account.json"
 
+credentials_error_msg="${red}
+************************************************************************************
+
+  ERROR: the 'BQ_CREDENTIALS' secret is not available in this Codespace!
+
+  Either you have never created a BQ_CREDENTIALS secret and/or have not
+  given this repository (named: $GITHUB_REPOSITORY) access to the secret.
+
+  To fix this either create a new secret by:
+
+    1. Going to https://github.com/settings/codespaces/secrets/new
+    2. Name: BQ_CREDENTIALS
+    3. Value: Your BigQuery service account JSON
+    4. Grant access to the '$GITHUB_REPOSITORY' repository
+
+  Or if you already have a BQ_CREDENTIALS secret, ensure it the 
+  repository you are working in has been granted access.
+
+    1. Go to https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit
+    2. Add 'Repository access' to this repository.
+
+************************************************************************************
+${reset}"
+
 
 # CHECK FOR REQUIRED CREDENTIALS
 #
 # Ensure BQ_CREDENTIALS secret is set before proceeding
 if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
-  echo "ERROR: BQ_CREDENTIALS secret is not set."
-  echo
-  echo "To fix this:"
-  echo "1. Go to https://github.com/settings/codespaces"
-  echo "2. Click 'New secret'"
-  echo "3. Name: BQ_CREDENTIALS"
-  echo "4. Value: Your BigQuery service account JSON"
-  echo "5. Grant access to this repository"
-  echo
+  echo -e "$credentials_error_msg"
   exit 1
 fi
 
@@ -93,8 +113,7 @@ port=$(
 # Generate server URL for Codespace
 server_url="https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/?token=$token"
 
-blue='\033[1;34m'
-reset='\033[0m'
+
 
 jupyterlab_message="${blue}
 **********************************************************************
