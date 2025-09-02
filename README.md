@@ -66,35 +66,3 @@ followed by some lines of Jupyter log output, for example:
 XXX Please change to either a paper (if published) or the repo. You may find it helpful to use Zenodo DOI (see [`DEVELOPERS.md`](DEVELOPERS.md#how-to-invite-people-to-cite) for further information)
 
 
-## Create a docker image and push to Github Container Registry (GHCR)
-
-First you need to authenticate Docker to GHCR.
-
-Run the below command, changing `USERNAME` to your GitHub username:
-
-```bash
-docker login ghcr.io -u USERNAME
-```
-
-Enter your personal access token (PAT) when you see the below:
-
-```bash
-Password:
-```
-
-Then you need to build the docker image
-
-```bash
-docker build -t ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest .
-```
-
-And then push to the repository to store the docker image:
-
-```bash
-docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
-```
-
-## Time savings
-
-Docker build = 2:49 mins
-Docker image pull = 1:29 mins

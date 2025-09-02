@@ -115,3 +115,37 @@ notebooks/**/*ipynb linguist-generated=true
 Once a project is completed, please use the instructions [here](https://guides.github.com/activities/citable-code/) to deposit a copy of your code with Zenodo. You will need a Zenodo free account to do this. This creates a DOI. Once you have this please add this in the readme.
 
 If there is a paper associated with this code, please change the 'how to cite' section to the citation and DOI for the paper. This allows us to build up citation credit.
+
+
+## Create a docker image and push to Github Container Registry (GHCR)
+
+First you need to authenticate Docker to GHCR.
+
+Run the below command, changing `USERNAME` to your GitHub username:
+
+```bash
+docker login ghcr.io -u USERNAME
+```
+
+Enter your personal access token (PAT) when you see the below:
+
+```bash
+Password:
+```
+
+Then you need to build the docker image
+
+```bash
+docker build -t ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest .
+```
+
+And then push to the repository to store the docker image:
+
+```bash
+docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
+```
+
+## Time savings
+
+Docker build = 2:49 mins
+Docker image pull = 1:29 mins
