@@ -118,8 +118,16 @@ $server_url
 ${reset}"
 
 
-(sleep 5; echo -e "$jupyterlab_message") &
 
+# Print message when ready
+print_jupyterlab_message_on_ready() {
+  while IFS= read -r line; do
+    printf "%s\n" "$line"
+    if [[ "$line" == *"Use Control-C to stop this server and shut down all kernels"* ]]; then
+      echo -e "$jupyterlab_message"
+    fi
+  done
+}
 
 # Start JupyterLab Notebook
 jupyter lab \
@@ -128,4 +136,4 @@ jupyter lab \
   --IdentityProvider.token="$token" \
   --ServerApp.custom_display_url="$server_url" \
   --no-browser \
-  --allow-root
+  --allow-root 2>&1 | print_jupyterlab_message_on_ready
