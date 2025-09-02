@@ -25,11 +25,11 @@ trap "error_handler" ERR
 #
 # Unset CDPATH to prevent `cd` potentially behaving unexpectedly
 unset CDPATH
-cd "$( dirname "${BASH_SOURCE[0]}")"
+cd "$( dirname "${BASH_SOURCE[0]}")/.."
 
 # ...existing code...
 # ...existing code...
-export EBMDATALAB_BQ_CREDENTIALS_PATH="$PWD/bq-service-account.json"
+# export EBMDATALAB_BQ_CREDENTIALS_PATH="$PWD/bq-service-account.json"
 
 
 # CHECK FOR REQUIRED CREDENTIALS
@@ -49,10 +49,12 @@ if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
 fi
 
 # Place Codespace credentials directly into the bq-service-account.json file
-echo "$BQ_CREDENTIALS" > ./bq-service-account.json
+# echo "$BQ_CREDENTIALS" > ./bq-service-account.json
 
-
-
+# This is a proper hack. We are changing the ebmdatalab library whilst we are updating the library itself for PyPI
+# TODO: #1 Need to remove when PyPI updated
+# Copy bq-env.py to ebmdatalab library bq.py
+cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
 
 
 # SET OS-SPECIFIC CONFIG
