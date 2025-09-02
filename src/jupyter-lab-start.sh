@@ -13,21 +13,7 @@ blue='\033[1;34m'
 red='\033[0;31m'
 reset='\033[0m'
 
-
-# ERROR HANDLER
-#
-# We expect this script to often get run automatically on Codespace startup,
-# so we'll log errors appropriately.
-error_handler() {
-  echo "ERROR: Jupyter Lab failed to start at $(date)" >> jupyter-error.log
-  echo "Jupyter Lab failed to start. Check jupyter-error.log for details."
-}
-
-trap "error_handler" ERR
-
-
 # CHANGE INTO SCRIPT DIRECTORY
-#
 # Unset CDPATH to prevent `cd` potentially behaving unexpectedly
 unset CDPATH
 cd "$( dirname "${BASH_SOURCE[0]}")/.."
@@ -108,15 +94,15 @@ server_url="https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DO
 
 
 jupyterlab_message="${blue}
-**************************************************************************************
+************************************************************************************************
 
 You can access JupyterLab via the link below (CTRL or CMD and click)
 
 $server_url
 
-The browser will try to open, but it might be hindered by your pop-up blocker.
+We will try and open the above url for you, but your pop-up blocker may stop this.
 
-**************************************************************************************
+************************************************************************************************
 ${reset}"
 
 
