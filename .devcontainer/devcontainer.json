@@ -1,4 +1,4 @@
 {
-  "image": "ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest"
-  // "postAttachCommand": "bash ./jupyter-lab-start.sh"
+  "image": "ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest",
+  "postAttachCommand": "bash ./jupyter-lab-start-inside-docker.sh"
 }
