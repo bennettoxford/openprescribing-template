@@ -8,6 +8,7 @@
 
 set -euo pipefail
 
+# Setting some variables to enable colours terminal print outs
 blue='\033[1;34m'
 red='\033[0;31m'
 reset='\033[0m'
@@ -31,9 +32,6 @@ trap "error_handler" ERR
 unset CDPATH
 cd "$( dirname "${BASH_SOURCE[0]}")/.."
 
-# ...existing code...
-# ...existing code...
-# export EBMDATALAB_BQ_CREDENTIALS_PATH="$PWD/bq-service-account.json"
 
 credentials_error_msg="${red}
 ************************************************************************************
@@ -68,16 +66,11 @@ if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
   exit 1
 fi
 
-# Place Codespace credentials directly into the bq-service-account.json file
-# echo "$BQ_CREDENTIALS" > ./bq-service-account.json
 
 # This is a proper hack. We are changing the ebmdatalab library whilst we are updating the library itself for PyPI
 # TODO: #1 Need to remove when PyPI updated
 # Copy bq-env.py to ebmdatalab library bq.py
 cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
-
-
-# SET OS-SPECIFIC CONFIG
 
 
 # GENERATE SERVER URL
@@ -114,19 +107,25 @@ port=$(
 server_url="https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/?token=$token"
 
 
-
 jupyterlab_message="${blue}
-**********************************************************************
+**************************************************************************************
 
 You can access JupyterLab via the link below (CTRL or CMD and click)
 
 $server_url
 
-**********************************************************************
+**************************************************************************************
 ${reset}"
 
-echo -e "$jupyterlab_message"
+
+(sleep 5; echo -e "$jupyterlab_message") &
 
 
-
-jupyter lab --ip=0.0.0.0 --port="$port" --IdentityProvider.token="$token" --ServerApp.custom_display_url="$server_url" --no-browser --allow-root
+# Start JupyterLab Notebook
+jupyter lab \
+  --ip=0.0.0.0 \
+  --port="$port" \
+  --IdentityProvider.token="$token" \
+  --ServerApp.custom_display_url="$server_url" \
+  --no-browser \
+  --allow-root
