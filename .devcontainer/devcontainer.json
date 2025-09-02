@@ -1,4 +1,12 @@
 {
   "image": "ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest",
-  "postAttachCommand": "bash ./src/jupyter-lab-start-inside-docker.sh"
+  "postAttachCommand": "bash ./src/jupyter-lab-start-inside-docker.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
 }
