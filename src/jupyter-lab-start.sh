@@ -114,17 +114,29 @@ You can access JupyterLab via the link below (CTRL or CMD and click)
 
 $server_url
 
+The browser will try to open, but it might be hindered by your pop-up blocker.
+
 **************************************************************************************
 ${reset}"
 
 
 
-# Print message when ready
+# Print message when ready and open JupyterLab (although pop-ups might be blocked)
 print_jupyterlab_message_on_ready() {
   while IFS= read -r line; do
     printf "%s\n" "$line"
     if [[ "$line" == *"Use Control-C to stop this server and shut down all kernels"* ]]; then
       echo -e "$jupyterlab_message"
+
+      # Wait for the server to respond before opening the browser
+      for i in {1..40}; do
+        if curl -s --fail "$server_url" > /dev/null; then
+          "$BROWSER" "$server_url" &
+          break
+        else
+          sleep 2
+        fi
+      done
     fi
   done
 }
