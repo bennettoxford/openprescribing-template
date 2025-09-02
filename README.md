@@ -97,4 +97,4 @@ docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
 ## Time savings
 
 Docker build = 2:49 mins
-Docker image pull = 
+Docker image pull = 1:29 mins

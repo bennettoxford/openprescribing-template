@@ -1,6 +1,8 @@
 # Credentials for accessing BigQuery
 bq-service-account.json
 
+jupyter-error.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

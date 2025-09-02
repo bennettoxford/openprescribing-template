@@ -56,7 +56,7 @@ image_name="ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest"
 # Generate a short random suffix so that we can set a meaningful name for the
 # container but still ensure uniqueness (with sufficiently high probability)
 container_suffix=$(head -c 6 /dev/urandom | base64 | tr '+/' '01')
-container_name="$image_name-$container_suffix"
+container_name="jupyter-lab-container"
 
 
 # BUILD IMAGE
