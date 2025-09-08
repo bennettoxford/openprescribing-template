@@ -36,13 +36,13 @@ Password:
 Then you need to build the docker image:
 
 ```bash
-docker build -t ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest .
+docker build -t ghcr.io/bennettoxford/openprescribing-template:latest .
 ```
 
 And then push to the repository to store the docker image:
 
 ```bash
-docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
+docker push ghcr.io/bennettoxford/openprescribing-template:latest
 ```
 
 OR
@@ -55,7 +55,7 @@ bash image-build-push.sh
 
 You can see the latest docker image at:
 
-[https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2](https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2)
+[https://github.com/orgs/bennettoxford/packages/container/package/openprescribing-template](https://github.com/orgs/bennettoxford/packages/container/package/openprescribing-template)
 
 ## Adding or updating Python packages
 

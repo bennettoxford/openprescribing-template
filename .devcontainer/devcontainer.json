@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest",
+  "image": "ghcr.io/bennettoxford/openprescribing-template:latest",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
