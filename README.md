@@ -8,28 +8,32 @@ Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find
 2. If you have not already, create a `BQ_CREDENTIALS` Codespace secret at [https://github.com/settings/codespaces/secrets/new](https://github.com/settings/codespaces/secrets/new)
    - Name: BQ_CREDENTIALS
    - Value: Your BigQuery service account JSON
-   - Grant access to this repository
+   - Grant access to `this` new repository
 3. Otherwise, if you already have a BQ_CREDENTIALS secret, ensure this repository has been granted access
-   - Go to [https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit](https://github.com/settings/codespaces/secrets/)BQ_CREDENTIALS/edit
-   - Add 'Repository access' to this repository.
+   - Go to [https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit](https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit)
+   - Grant access to `this` new repository
 4. Open Codespace by clicking on `<> Code ▼` button above
-5. Clicking on the `Codespace` tab
-6. Click on `Create Codespace on master`
-7. Wait 2-3 minutes for Codespace to build (this can look like a lot is not happening, but be patient)
+5. Click on the `Codespace` tab
+6. Click on the `Create Codespace on master` button
+7. Wait 2-3 minutes for Codespace to build (this can look like nothing is happening, but be patient)
 
 ## Open Jupyter Labs
 
-Once Codespace has finished building, will see the terminal start showing a lot of text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.
+Once Codespace has finished building, the terminal will start to output text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.
 
+<!-- prettier-ignore-start -->
 ```markdown
----
+************************************************************************************
+
 You can access JupyterLab via the link below (CTRL or CMD and click)
 
 https://opulent-trout-7xj795qv5qqhr9x7-59459.app.github.dev/?token=E8HYgdstcE8DqCLW
 
 We will try and open the above url for you, but your pop-up blocker may stop this.
----
+
+************************************************************************************
 ```
+<!-- prettier-ignore-end -->
 
 ## Batteries included
 
