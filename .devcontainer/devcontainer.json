@@ -1,5 +1,8 @@
 {
   "image": "ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
   "postAttachCommand": "bash ./src/jupyter-lab-start.sh",
   "customizations": {
     "vscode": {

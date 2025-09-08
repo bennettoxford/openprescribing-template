@@ -16,37 +16,39 @@ The first time you run this command it may take some time to download
 and install the necessary software. Subsequent runs should be much
 faster.
 
-
 ## Adding or updating Python packages
 
 To install a new package:
 
- * Add it to the bottom of the `requirements.in` file.
- * From the Jupyter Labs Launcher page, choose "Terminal" (in the
-   "Other" section).
- * Run:
-   ```sh
-   pip-compile -v
-   ```
-   This will automatically update your `requirements.txt` file to
-   include the new package. (The `-v` just means "verbose" so you can
-   see progess as this command can take a while to run.)
- * Shutdown the Jupyter server and re-run the `jupyter-lab` launcher
-   script.
- * Docker should automatically install the new package before starting
-   the server.
+- Add it to the bottom of the `requirements.in` file.
+- From the Jupyter Labs Launcher page, choose "Terminal" (in the
+  "Other" section).
+- Run:
+
+  ```sh
+  pip-compile -v
+  ```
+
+  This will automatically update your `requirements.txt` file to
+  include the new package. (The `-v` just means "verbose" so you can
+  see progess as this command can take a while to run.)
+- Shutdown the Jupyter server and re-run the `jupyter-lab` launcher
+  script.
+- Docker should automatically install the new package before starting
+  the server.
 
 To update an existing package the process is the same as above except
 that instead of running `pip-compile -v` you should run:
+
 ```sh
 pip-compile -v --upgrade-package <package_name>
 ```
 
 To update _all_ packages you can run:
+
 ```sh
 pip-compile -v --upgrade
 ```
-
 
 ## Importing from `lib`
 
@@ -59,19 +61,22 @@ you, or it may break your imports.
 
 If you find your imports no longer work and you have imports of the
 form:
+
 ```python
 from lib import my_custom_library
 ```
+
 Then you should move the `lib` directory to be inside `notebooks` and it
 should work.
 
 If your imports no longer work and they are of the form:
+
 ```python
 import my_custom_library
 ```
+
 Then you can move `lib/my_custom_library.py` to
 `notebooks/my_custom_library.py`.
-
 
 ## Diffing notebook files
 
@@ -95,6 +100,7 @@ To use the "paired" format in which a traditional `.ipynb` file is saved
 alongside a pure-Python variant inside a `diffable_python` directory,
 add a file called `jupytext.toml` to the root of your repo containing
 these lines:
+
 ```toml
 [formats]
 "notebooks/" = "ipynb"
@@ -103,18 +109,17 @@ these lines:
 
 To prevent `.ipynb` files from showing in Github diffs add these lines
 to the bottom of the `.gitattributes` files:
-```
+
+```text
 # Don't show notebook files when diffing in GitHub
 notebooks/**/*ipynb linguist-generated=true
 ```
-
 
 ## How to invite people to cite
 
 Once a project is completed, please use the instructions [here](https://guides.github.com/activities/citable-code/) to deposit a copy of your code with Zenodo. You will need a Zenodo free account to do this. This creates a DOI. Once you have this please add this in the readme.
 
 If there is a paper associated with this code, please change the 'how to cite' section to the citation and DOI for the paper. This allows us to build up citation credit.
-
 
 ## Create a docker image and push to Github Container Registry (GHCR)
 
