@@ -8,14 +8,14 @@
 
 set -euo pipefail
 
-# Setting some variables to enable colours terminal print outs
+# Setting some variables to enable formatting of terminal print outs
 blue='\033[1;34m'
 red='\033[0;31m'
 underline='\033[4m'
 underline_off='\033[24m'
 reset='\033[0m'
 
-# CHANGE INTO SCRIPT DIRECTORY
+
 # Unset CDPATH to prevent `cd` potentially behaving unexpectedly
 unset CDPATH
 cd "$( dirname "${BASH_SOURCE[0]}")/.."
@@ -46,8 +46,6 @@ credentials_error_msg="${red}
 ${reset}"
 
 
-# CHECK FOR REQUIRED CREDENTIALS
-#
 # Ensure BQ_CREDENTIALS secret is set before proceeding
 if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
   echo -e "$credentials_error_msg"
@@ -55,13 +53,6 @@ if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
 fi
 
 
-# This is a proper hack. We are changing the ebmdatalab library whilst we are updating the library itself for PyPI
-# TODO: #1 Need to remove when PyPI updated
-# cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
-
-
-# GENERATE SERVER URL
-#
 # Generate a random token with which to authenticate to Jupyter. Jupyter can
 # generate this for us, but it massively simplifies things to generate it
 # ourselves and pass it in, rather than try to extract the token Jupyter has
@@ -74,7 +65,7 @@ token=$(head -c 12 /dev/urandom | base64 | tr '+/' '01')
 # port we're given. This is obviously race-unsafe in the sense that the port
 # might no longer be free at the point we want to use it, but that's seems
 # unlikely on a local workstation.
-#
+
 # We shell out to Perl as we can assume the presence of git and git implies the
 # presence of Perl.
 port=$(

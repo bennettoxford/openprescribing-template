@@ -1,20 +1,61 @@
 # The Bennett Institute's default notebook environment
 
-## Running Jupyter Lab
+## Update
 
-You will need to have installed Git and Docker, please see the
-[`INSTALLATION_GUIDE.md`](INSTALLATION_GUIDE.md) for further details.
+This template now runs in Codespaces and makes use of much of its built-in functionality. This includes:
 
-Windows and Linux users should double-click the `jupyter-lab` file.
-Users on macOS should double-click `jupyter-lab-mac-os` instead.
+- Running the original docker container for the GitHub template as the Codespace container itself.
+- Removing the need to install docker and git on your own machine.
+- Using a pre-built docker image for the Codespace session.
+- Storing credentials in Codespace secrets instead of in a file in the repo itself.
 
-This will build a Docker image with all software requirements installed,
-start a new Jupyter Lab server, and then provide a link to access this
-server.
+These changes were all made to simplify, speed up and and make more secure the act of undertaking OpenPrescribing BigQuery analyses.
 
-The first time you run this command it may take some time to download
-and install the necessary software. Subsequent runs should be much
-faster.
+Of note, to be able to use Codespace secrets, the `ebmdatalab` PyPI library had to be updated a little. As the library is no longer maintained, it was just simpler to update the library in situ. Hence the file `./bq-env.py` is copied into the `ebmdatalab` library in the Dockerfile:
+
+```bash
+COPY bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
+```
+
+## Create a docker image and push to Github Container Registry (GHCR)
+
+If you undertake any changes to the Dockerfile, you will need to build it again and then push to the Bennett GHCR.
+
+First you need to authenticate Docker to GHCR. Run the below command, changing `USERNAME` to your GitHub username:
+
+```bash
+docker login ghcr.io -u USERNAME
+```
+
+Enter a GitHub personal access token (PAT) (with packages write, read and delete privileges) when you see the below:
+
+```bash
+Password:
+```
+
+Then you need to build the docker image:
+
+```bash
+docker build -t ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest .
+```
+
+And then push to the repository to store the docker image:
+
+```bash
+docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
+```
+
+OR
+
+You can just run the below shell script:
+
+```bash
+bash image-build-push.sh
+```
+
+You can see the latest docker image at:
+
+[https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2](https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2)
 
 ## Adding or updating Python packages
 
@@ -31,7 +72,7 @@ To install a new package:
 
   This will automatically update your `requirements.txt` file to
   include the new package. (The `-v` just means "verbose" so you can
-  see progess as this command can take a while to run.)
+  see progress as this command can take a while to run.)
 
 - Shutdown the Jupyter server and re-run the `jupyter-lab` launcher
   script.
@@ -76,8 +117,7 @@ If your imports no longer work and they are of the form:
 import my_custom_library
 ```
 
-Then you can move `lib/my_custom_library.py` to
-`notebooks/my_custom_library.py`.
+Then you can move `lib/my_custom_library.py` to `notebooks/my_custom_library.py`.
 
 ## Diffing notebook files
 
@@ -121,40 +161,3 @@ notebooks/**/*ipynb linguist-generated=true
 Once a project is completed, please use the instructions [here](https://guides.github.com/activities/citable-code/) to deposit a copy of your code with Zenodo. You will need a Zenodo free account to do this. This creates a DOI. Once you have this please add this in the readme.
 
 If there is a paper associated with this code, please change the 'how to cite' section to the citation and DOI for the paper. This allows us to build up citation credit.
-
-## Create a docker image and push to Github Container Registry (GHCR)
-
-First you need to authenticate Docker to GHCR.
-
-Run the below command, changing `USERNAME` to your GitHub username:
-
-```bash
-docker login ghcr.io -u USERNAME
-```
-
-Enter a GitHub personal access token (PAT) (with packages write, read and delete privileges) when you see the below:
-
-```bash
-Password:
-```
-
-Then you need to build the docker image
-
-```bash
-docker build -t ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest .
-```
-
-And then push to the repository to store the docker image:
-
-```bash
-docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
-```
-
-You can see the latest docker image at:
-
-[https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2](https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2)
-
-## Time savings
-
-Docker build = 2:49 mins
-Docker image pull = 1:29 mins
