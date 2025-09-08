@@ -57,8 +57,7 @@ fi
 
 # This is a proper hack. We are changing the ebmdatalab library whilst we are updating the library itself for PyPI
 # TODO: #1 Need to remove when PyPI updated
-# Copy bq-env.py to ebmdatalab library bq.py
-cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
+# cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py
 
 
 # GENERATE SERVER URL

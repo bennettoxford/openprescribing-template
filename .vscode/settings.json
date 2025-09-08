@@ -1,4 +1,13 @@
 {
+  "markdownlint.config": {
+    "default": true
+  },
+  "markdownlint.lintOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },,
 "cSpell.language": "en-GB",
 "cSpell.words": [
     "bennettoxford",

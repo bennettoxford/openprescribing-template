@@ -1,6 +1,5 @@
 # The Bennett Institute's default notebook environment
 
-
 ## Running Jupyter Lab
 
 You will need to have installed Git and Docker, please see the

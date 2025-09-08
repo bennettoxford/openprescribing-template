@@ -33,3 +33,8 @@ RUN /tmp/postinstall.sh
 
 RUN mkdir /workspace
 WORKDIR /workspace
+
+# This is a proper hack! The copied code gets credentials from
+# Codespace secrets OR the `bq-service-account.json` file.
+# TODO: #2 Need to remove when PyPI updated
+cp ./src/bq-env.py /usr/local/lib/python3.12/site-packages/ebmdatalab/bq.py

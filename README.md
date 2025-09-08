@@ -20,6 +20,8 @@ You can access JupyterLab via the link below (CTRL or CMD and click)
 
 https://opulent-trout-7xj795qv5qqhr9x7-59459.app.github.dev/?token=E8HYgdstcE8DqCLW
 
+We will try and open the above url for you, but your pop-up blocker may stop this.
+
 **********************************************************************
 
 ```
@@ -34,3 +36,5 @@ To help you within Codespace, we have added the below features (but not included
 ## How to cite
 
 XXX Please change to either a paper (if published) or the repo. You may find it helpful to use Zenodo DOI (see [`DEVELOPERS.md`](dev/Developers.md#how-to-invite-people-to-cite) for further information).
+
+You might want to delete the `lessons` folder when you reference this repository in articles.
