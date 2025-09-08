@@ -31,7 +31,7 @@ credentials_error_msg="${red}
 
   To fix this either create a new secret by:
 
-    1. Going to https://github.com/settings/codespaces/secrets/new
+    1. Going to ${underline}https://github.com/settings/codespaces/secrets/new${underline_off}
     2. Name: BQ_CREDENTIALS
     3. Value: Your BigQuery service account JSON
     4. Grant access to the '$GITHUB_REPOSITORY' repository
@@ -39,8 +39,10 @@ credentials_error_msg="${red}
   Or if you already have a BQ_CREDENTIALS secret, ensure it the 
   repository you are working in has been granted access.
 
-    1. Go to https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit
+    1. Go to ${underline}https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit${underline_off}
     2. Add 'Repository access' to this repository.
+
+  Once access has been granted, please run this script again.
 
 ************************************************************************************
 ${reset}"
