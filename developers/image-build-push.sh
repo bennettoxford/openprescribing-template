@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME="mark-notebook-bigquery-2"
+IMAGE_NAME="openprescribing-template"
 IMAGE_REPO="ghcr.io/bennettoxford/$IMAGE_NAME:latest"
 IMAGE_URL="https://github.com/orgs/bennettoxford/packages/container/package/$IMAGE_NAME"
 

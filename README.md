@@ -1,29 +1,34 @@
 # OpenPrescribing JupyterLab Notebook
 
-Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find this notebook both informative and useful. This Notebook is designed as a template for those wishing to learn and/or practice the access and data analyse of data from the OpenPrescribing data source. For those wishing to learn about how to use this Notebook from scratch (or even a reminder), then please start [here](https://bennett.wiki/) `url needs updating`. Currently, this notebook is only available for Bennett Institute staff, as you need credentials to access the OpenPrescribing data.
+Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find this notebook both informative and useful. This Notebook is designed as a template for those wishing to learn and/or practice the access and data analyse of data from the OpenPrescribing. For those wishing to learn about how to use this Notebook from scratch (or even a reminder), then please start [here](https://bennett.wiki/) `url needs updating`. Currently, this notebook is only available for Bennett Institute staff, as you need credentials to access the OpenPrescribing data.
 
 ## Getting started
 
-1. Open Codespace by clicking on `<> Code ▼` button above
-2. Clicking on the `Codespace` tab
-3. Click on 'Create Codespace on master`
-4. Wait 2-3 minutes for Codespace to build (this can look like a lot is not happening, but be patient)
+1. Create a new repository and use this repo `openprescribing-template` as a template.
+2. If you have not already, create a `BQ_CREDENTIALS` Codespace secret at [https://github.com/settings/codespaces/secrets/new](https://github.com/settings/codespaces/secrets/new)
+   - Name: BQ_CREDENTIALS
+   - Value: Your BigQuery service account JSON
+   - Grant access to this repository
+3. Otherwise, if you already have a BQ_CREDENTIALS secret, ensure this repository has been granted access
+   - Go to [https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit](https://github.com/settings/codespaces/secrets/)BQ_CREDENTIALS/edit
+   - Add 'Repository access' to this repository.
+4. Open Codespace by clicking on `<> Code ▼` button above
+5. Clicking on the `Codespace` tab
+6. Click on `Create Codespace on master`
+7. Wait 2-3 minutes for Codespace to build (this can look like a lot is not happening, but be patient)
 
 ## Open Jupyter Labs
 
 Once Codespace has finished building, will see the terminal start showing a lot of text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.
 
 ```markdown
-**********************************************************************
-
+---
 You can access JupyterLab via the link below (CTRL or CMD and click)
 
 https://opulent-trout-7xj795qv5qqhr9x7-59459.app.github.dev/?token=E8HYgdstcE8DqCLW
 
 We will try and open the above url for you, but your pop-up blocker may stop this.
-
-**********************************************************************
-
+---
 ```
 
 ## Batteries included

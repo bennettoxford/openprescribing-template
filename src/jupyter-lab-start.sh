@@ -36,13 +36,12 @@ credentials_error_msg="${red}
     3. Value: Your BigQuery service account JSON
     4. Grant access to the '$GITHUB_REPOSITORY' repository
 
-  Or if you already have a BQ_CREDENTIALS secret, ensure it the 
-  repository you are working in has been granted access.
+  Or if you already have a BQ_CREDENTIALS secret, ensure the repository you are working in has been granted access.
 
     1. Go to ${underline}https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit${underline_off}
     2. Add 'Repository access' to this repository.
 
-  Once access has been granted, please run this script again.
+  Once access has been granted, exit and delete the current running Codespace and then restart Codespace again.
 
 ************************************************************************************
 ${reset}"
