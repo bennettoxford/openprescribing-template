@@ -32,6 +32,7 @@ To install a new package:
   This will automatically update your `requirements.txt` file to
   include the new package. (The `-v` just means "verbose" so you can
   see progess as this command can take a while to run.)
+
 - Shutdown the Jupyter server and re-run the `jupyter-lab` launcher
   script.
 - Docker should automatically install the new package before starting
@@ -131,7 +132,7 @@ Run the below command, changing `USERNAME` to your GitHub username:
 docker login ghcr.io -u USERNAME
 ```
 
-Enter your personal access token (PAT) when you see the below:
+Enter a GitHub personal access token (PAT) (with packages write, read and delete privileges) when you see the below:
 
 ```bash
 Password:
@@ -148,6 +149,10 @@ And then push to the repository to store the docker image:
 ```bash
 docker push ghcr.io/bennettoxford/mark-notebook-bigquery-2:latest
 ```
+
+You can see the latest docker image at:
+
+[https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2](https://github.com/orgs/bennettoxford/packages/container/package/mark-notebook-bigquery-2)
 
 ## Time savings
 
