@@ -17,6 +17,20 @@ Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find
 6. Click on the `Create Codespace on master` button
 7. Wait 2-3 minutes for Codespace to build (this can look like nothing is happening, but be patient)
 
+## Don't need BigQuery access just yet?
+
+If you don't need Google BigQuery access just yet (or you don't have the credentials), you can bypass the credentials check by running:
+
+```bash
+export BYPASS_CREDENTIALS_CHECK=true
+```
+
+and then start Jupyter with:
+
+```bash
+bash ./src/jupyter-lab-start.sh
+```
+
 ## Open Jupyter Labs
 
 Once Codespace has finished building, the terminal will start to output text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.

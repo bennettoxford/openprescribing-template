@@ -48,7 +48,9 @@ ${reset}"
 
 
 # Ensure BQ_CREDENTIALS secret is set before proceeding
-if [[ -z "${BQ_CREDENTIALS:-}" ]]; then
+if [[ "${BYPASS_CREDENTIALS_CHECK:-false}" == "true" ]]; then
+  echo "Credentials check skipped"
+elif [[ -z "${BQ_CREDENTIALS:-}" ]]; then
   echo -e "$credentials_error_msg"
   exit 1
 fi
