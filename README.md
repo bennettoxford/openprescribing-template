@@ -25,13 +25,13 @@ If you don't need Google BigQuery access just yet (or you don't have the credent
 export BYPASS_CREDENTIALS_CHECK=true
 ```
 
-and then start Jupyter with:
+and then start JupyterLabs with:
 
 ```bash
 bash ./src/jupyter-lab-start.sh
 ```
 
-## Open Jupyter Labs
+## Open JupyterLabs
 
 Once Codespace has finished building, the terminal will start to output text. When you see something like the below, press CTRL or CMD and click on the hyperlink. This should start your JupyterLabs Notebook session.
 
