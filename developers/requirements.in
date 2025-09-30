@@ -12,6 +12,7 @@ numpy
 ebmdatalab
 matplotlib
 tqdm
+google-cloud-bigquery
 
 # Both these required for plotly+notebooks
 ipywidgets

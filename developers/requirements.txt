@@ -119,7 +119,9 @@ google-auth-oauthlib==1.2.0
     #   pandas-gbq
     #   pydata-google-auth
 google-cloud-bigquery==3.21.0
-    # via pandas-gbq
+    # via
+    #   -r requirements.in
+    #   pandas-gbq
 google-cloud-core==2.4.1
     # via google-cloud-bigquery
 google-crc32c==1.5.0

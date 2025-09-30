@@ -67,6 +67,7 @@ To install a new package:
 - Run:
 
   ```sh
+  cd developers
   pip-compile -v
   ```
 
