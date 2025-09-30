@@ -14,7 +14,8 @@ Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find
    - Grant access to `this` new repository
 4. Press on the button below:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/OWNER/REPO)
+
 
 5. Or, open Codespace by clicking on `<> Code ▼` button above
 6. Click on the `Codespace` tab
