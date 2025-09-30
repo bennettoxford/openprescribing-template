@@ -12,10 +12,14 @@ Welcome to this JupyterLab Notebook from the Bennett Institute. We hope you find
 3. Otherwise, if you already have a BQ_CREDENTIALS secret, ensure this repository has been granted access
    - Go to [https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit](https://github.com/settings/codespaces/secrets/BQ_CREDENTIALS/edit)
    - Grant access to `this` new repository
-4. Open Codespace by clicking on `<> Code ▼` button above
-5. Click on the `Codespace` tab
-6. Click on the `Create Codespace on master` button
-7. Wait 2-3 minutes for Codespace to build (this can look like nothing is happening, but be patient)
+4. Press on the button below:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/)
+
+5. Or, open Codespace by clicking on `<> Code ▼` button above
+6. Click on the `Codespace` tab
+7. Click on the `Create Codespace on master` button
+8. Wait 2-3 minutes for Codespace to build (this can look like nothing is happening, but be patient)
 
 ## Don't need BigQuery access just yet?
 
